@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CarAlarm</string>
+    <string name="activated">Car Alarm Activated</string>
+    <string name="parsed_time_received">9:30</string>
 </resources>
