@@ -2,4 +2,9 @@
     <string name="app_name">CarAlarm</string>
     <string name="activated">Car Alarm Activated</string>
     <string name="parsed_time_received">9:30</string>
+    <string name="alarm_email_address_of_vehicle_owner">crywolf.f15@gmail.com</string>
+    <string name="alarm_email_subject">(CRYWOLF_CAR_MESSENGER)</string>
+    <string name="KEY_alarm_email_content">KEY_ALARM_EMAIL_CONTENT</string>
+    <string name="welcome_main">Crywolf alarm system installed!</string>
+    <string name="instruction_main">You can exit this screen.</string>
 </resources>

@@ -13,44 +13,41 @@ import android.util.Log;
 
 /**
  * Created by Hanbin on 10/18/2015.
+ * // Read the incoming SMS and start AlarmScreen if the criteria are met.
  */
 public class CarAlarmSMSListener extends BroadcastReceiver {
-    private final String CARALARM_OWNER_ADDRESS = "crywolf.f15@gmail.com";
-    private final String CARALARM_MESSAGE_TITLE = "(From LabVIEW with Love)";
+
     @Override
     @TargetApi(19)
     public void onReceive(Context context, Intent intent) {
-        final Bundle bundle = intent.getExtras();
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
 
-        try {
-            if (bundle != null) {
-                final Object[] pdusObj = (Object[]) bundle.get("pdus");
+            SmsMessage[] receivedMessages = Intents.getMessagesFromIntent(intent);
+            if (receivedMessages != null) {
 
-                for (int i = 0; i < pdusObj.length; i++) {
-                    SmsMessage[] currentMessages = Intents.getMessagesFromIntent(intent);
+                for (int j = 0; j < receivedMessages.length; j++) {
+                    SmsMessage message = receivedMessages[j];
 
-                    if (currentMessages != null) {
-                        for (int j = 0; j < currentMessages.length; j++) {
-                            SmsMessage currentMessage = currentMessages[j];
-                            String senderAddress = currentMessage.getDisplayOriginatingAddress();
-                            if (senderAddress.equals(CARALARM_OWNER_ADDRESS)) {
-                                String messageBody = currentMessage.getDisplayMessageBody();
-                                if (messageBody.substring(0, CARALARM_MESSAGE_TITLE.length()) == CARALARM_MESSAGE_TITLE) {
-                                    String messageContent = messageBody.substring(CARALARM_MESSAGE_TITLE.length()).trim();
-                                /*Check messageContent and respond appropriately*/
-                                /* if (messageContent.equals("ALARM!") { } */
-                                    Toast toast = Toast.makeText(context, "From: " + CARALARM_OWNER_ADDRESS + "\n"
-                                            + messageContent, Toast.LENGTH_SHORT);
-                                    toast.show();
-                                    break;
-                                }
-                            }
+                    String senderAddress_registered = context.getResources()
+                            .getString(R.string.alarm_email_address_of_vehicle_owner);
+                    String senderAddress_received = message.getDisplayOriginatingAddress();
+                    if (senderAddress_received.equals(senderAddress_registered)) {
+                        String messageBody = message.getDisplayMessageBody();
+                        String msgSubject_registered = context.getResources().getString(R.string.alarm_email_subject);
+                        String msgSubject_received = messageBody.substring(0, msgSubject_registered.length());
+                        if (msgSubject_received.equals(msgSubject_registered)) {
+                            Intent intent_start_alarmScreen = new Intent(context, AlarmScreen.class);
+                            intent_start_alarmScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            String KEY_alarm_email_content = context.getResources()
+                                    .getString(R.string.KEY_alarm_email_content);
+                            intent_start_alarmScreen.putExtra(KEY_alarm_email_content,
+                                    messageBody.substring(msgSubject_registered.length()).trim());
+                            context.startActivity(intent_start_alarmScreen);
                         }
                     }
                 }
             }
-        } catch (Exception e) {
-            Log.e("CarAlarmSMSListener", "Exception CarAlarmSMSListener" + e);
         }
     }
 }

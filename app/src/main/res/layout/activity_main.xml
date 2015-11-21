@@ -9,44 +9,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AlarmScreen">
+    tools:context=".Main">
 
     <TextView
-        android:id="@+id/AlarmStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:editable="true"
-        android:text="AlarmStatus"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFF"
+        android:text="@string/welcome_main"
         android:textSize="20dp"
-        android:layout_above="@+id/AlarmTimeStamp"
+        android:textColor="#FFF"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginTop="81dp" />
 
     <TextView
-        android:id="@+id/VehicleModel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:editable="true"
-        android:text="VehicleModel"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFF"
+        android:text="@string/instruction_main"
         android:textSize="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@+id/AlarmStatus"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:id="@+id/AlarmTimeStamp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:editable="true"
-        android:text="AlarmTimeStamp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFF"
-        android:textSize="20dp"
+        android:id="@+id/textView2"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp" />
 </RelativeLayout>
