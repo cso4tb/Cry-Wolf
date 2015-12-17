@@ -4,6 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.BroadcastReceiver;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.provider.Telephony.Sms.Intents;
