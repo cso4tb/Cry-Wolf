@@ -53,8 +53,7 @@ public class AlarmScreen extends AppCompatActivity {
         TextView view_alarmTimeStamp = (TextView) findViewById(R.id.AlarmTimeStamp);
         view_vehicleModel.setText(str_vehicleModel);
         view_alarmStatus.setText(str_alarmStatus);
-        view_alarmTimeStamp.setText(str_alarmTimeStamp);
-
+        view_alarmTimeStamp.setText(str_alarmTimeStamp)
     }
 
     @Override
