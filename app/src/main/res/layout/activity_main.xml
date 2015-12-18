@@ -16,22 +16,25 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/welcome_main"
-        android:textSize="20dp"
+        android:textSize="35sp"
         android:textColor="#FFF"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp" />
+        android:layout_marginBottom="89dp"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center"
+        android:background="#5758cf" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/instruction_main"
-        android:textSize="20dp"
+        android:textSize="30sp"
         android:textColor="#FFF"
         android:id="@+id/textView2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="62dp" />
+        android:layout_marginBottom="130dp" />
 </RelativeLayout>
